@@ -39,6 +39,8 @@
 		37446B6316B1A9D70040C52F /* ColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorView.h; sourceTree = "<group>"; };
 		37446B6416B1A9D70040C52F /* ColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorView.m; sourceTree = "<group>"; };
 		37446B6816B1AAF40040C52F /* ColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorView.xib; sourceTree = "<group>"; };
+		37446B6A16B27DE70040C52F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		37446B6C16B27EAF0040C52F /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.md; path = ../../LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,8 @@
 				37446B4D16B1A7630040C52F /* Default.png */,
 				37446B4F16B1A7630040C52F /* Default@2x.png */,
 				37446B5116B1A7630040C52F /* Default-568h@2x.png */,
+				37446B6A16B27DE70040C52F /* README.md */,
+				37446B6C16B27EAF0040C52F /* LICENSE.md */,
 			);
 			name = "Supporting Files";
 			path = "Suporting Files";

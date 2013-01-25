@@ -2,9 +2,9 @@
 //  ColorView.h
 //  NibLoadedViewSample
 //
-//  Created by Nicolas on 24/01/13.
-//  Copyright (c) 2013 Nicolas Bouilleaud. All rights reserved.
+//  Created by Nicolas Bouilleaud.
 //
+// 	https://github.com/n-b/UIView-NibLoading
 
 #import "UIView+NibLoading.h"
 

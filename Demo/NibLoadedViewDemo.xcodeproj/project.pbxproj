@@ -22,11 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37446B3816B1A7630040C52F /* NibLoadedViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NibLoadedViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37446B3816B1A7630040C52F /* NibLoadedViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NibLoadedViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37446B3B16B1A7630040C52F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37446B3D16B1A7630040C52F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		37446B3F16B1A7630040C52F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		37446B4316B1A7630040C52F /* NibLoadedViewSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NibLoadedViewSample-Info.plist"; sourceTree = "<group>"; };
+		37446B4316B1A7630040C52F /* NibLoadedViewDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NibLoadedViewDemo-Info.plist"; sourceTree = "<group>"; };
 		37446B4B16B1A7630040C52F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		37446B4D16B1A7630040C52F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		37446B4F16B1A7630040C52F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		37446B3916B1A7630040C52F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37446B3816B1A7630040C52F /* NibLoadedViewSample.app */,
+				37446B3816B1A7630040C52F /* NibLoadedViewDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,13 +88,13 @@
 			isa = PBXGroup;
 			children = (
 				37446B4B16B1A7630040C52F /* AppDelegate.m */,
-				37446B4316B1A7630040C52F /* NibLoadedViewSample-Info.plist */,
+				37446B4316B1A7630040C52F /* NibLoadedViewDemo-Info.plist */,
 				37446B4D16B1A7630040C52F /* Default.png */,
 				37446B4F16B1A7630040C52F /* Default@2x.png */,
 				37446B5116B1A7630040C52F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			path = NibLoadedViewSample;
+			path = "Suporting Files";
 			sourceTree = "<group>";
 		};
 		37446B6616B1A9E20040C52F /* UIView+NibLoading */ = {
@@ -122,9 +122,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37446B3716B1A7630040C52F /* NibLoadedViewSample */ = {
+		37446B3716B1A7630040C52F /* NibLoadedViewDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37446B5516B1A7630040C52F /* Build configuration list for PBXNativeTarget "NibLoadedViewSample" */;
+			buildConfigurationList = 37446B5516B1A7630040C52F /* Build configuration list for PBXNativeTarget "NibLoadedViewDemo" */;
 			buildPhases = (
 				37446B3416B1A7630040C52F /* Sources */,
 				37446B3516B1A7630040C52F /* Frameworks */,
@@ -134,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = NibLoadedViewSample;
+			name = NibLoadedViewDemo;
 			productName = NibLoadedViewSample;
-			productReference = 37446B3816B1A7630040C52F /* NibLoadedViewSample.app */;
+			productReference = 37446B3816B1A7630040C52F /* NibLoadedViewDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -149,7 +149,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Nicolas Bouilleaud";
 			};
-			buildConfigurationList = 37446B3316B1A7630040C52F /* Build configuration list for PBXProject "NibLoadedViewSample" */;
+			buildConfigurationList = 37446B3316B1A7630040C52F /* Build configuration list for PBXProject "NibLoadedViewDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37446B3716B1A7630040C52F /* NibLoadedViewSample */,
+				37446B3716B1A7630040C52F /* NibLoadedViewDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -255,8 +255,8 @@
 		37446B5616B1A7630040C52F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "NibLoadedViewSample/NibLoadedViewSample-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Suporting Files/NibLoadedViewDemo-Info.plist";
+				PRODUCT_NAME = NibLoadedViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -264,8 +264,8 @@
 		37446B5716B1A7630040C52F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "NibLoadedViewSample/NibLoadedViewSample-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Suporting Files/NibLoadedViewDemo-Info.plist";
+				PRODUCT_NAME = NibLoadedViewDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -273,7 +273,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37446B3316B1A7630040C52F /* Build configuration list for PBXProject "NibLoadedViewSample" */ = {
+		37446B3316B1A7630040C52F /* Build configuration list for PBXProject "NibLoadedViewDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37446B5316B1A7630040C52F /* Debug */,
@@ -282,13 +282,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37446B5516B1A7630040C52F /* Build configuration list for PBXNativeTarget "NibLoadedViewSample" */ = {
+		37446B5516B1A7630040C52F /* Build configuration list for PBXNativeTarget "NibLoadedViewDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37446B5616B1A7630040C52F /* Debug */,
 				37446B5716B1A7630040C52F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

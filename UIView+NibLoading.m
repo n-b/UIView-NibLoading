@@ -6,7 +6,7 @@
 // 	https://github.com/n-b/UIView-NibLoading
 
 #import "UIView+NibLoading.h"
-#import "objc/objc-runtime.h"
+#import <objc/runtime.h>
 
 @implementation UIView(NibLoading)
 

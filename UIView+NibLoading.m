@@ -43,6 +43,8 @@
     UIView * containerView = [views objectAtIndex:0];
     NSAssert([[containerView class] isEqual:[UIView class]], @"UIView+NibLoading : The container view in nib %@ should be a UIView instead of %@. (It's only a container, and it's discarded after loading.)",nibName,[containerView class]);
     
+    [containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
     if(CGRectEqualToRect(self.bounds, CGRectZero))
         // `self` has no size : use the containerView's size, from the nib file
         self.bounds = containerView.bounds;
@@ -50,9 +52,27 @@
         // `self` has a specific size : resize the containerView to this size, so that the subviews are autoresized.
         containerView.bounds = self.bounds;
     
+    //save constraints for later
+    NSArray *constraints = containerView.constraints;
+    
     // reparent the subviews from the nib file
     for (UIView * view in containerView.subviews)
         [self addSubview:view];
+    
+    //re-add constraints, replace containerView with self
+    for (NSLayoutConstraint *constraint in constraints)
+    {
+        id firstItem = constraint.firstItem;
+        id secondItem = constraint.secondItem;
+        
+        if (firstItem == containerView)
+            firstItem = self;
+        
+        if (secondItem == containerView)
+            secondItem = self;
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:secondItem attribute:constraint.secondAttribute multiplier:constraint.multiplier constant:constraint.constant]];
+    }
 }
 
 - (void) loadContentsFromNib

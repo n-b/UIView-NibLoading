@@ -39,9 +39,19 @@
 
     NSArray * views = [nib instantiateWithOwner:self options:nil];
     NSAssert(views!=nil, @"UIView+NibLoading : Can't instantiate nib named %@.",nibName);
-    NSAssert(views.count==1, @"UIView+NibLoading : There must be exactly one root container view in %@.",nibName);
-    UIView * containerView = [views objectAtIndex:0];
-    NSAssert([[containerView class] isEqual:[UIView class]], @"UIView+NibLoading : The container view in nib %@ should be a UIView instead of %@. (It's only a container, and it's discarded after loading.)",nibName,[containerView class]);
+
+    // Search for the first encountered UIView based object
+    UIView * containerView = nil;
+    for (id v in views)
+    {
+        if ([v isKindOfClass:[UIView class]])
+        {
+            containerView = v;
+            break;
+        }
+    }
+    
+    NSAssert(containerView != nil, @"UIView+NibLoading : There is no container UIView found at the root of nib %@.",nibName);
     
     [containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     

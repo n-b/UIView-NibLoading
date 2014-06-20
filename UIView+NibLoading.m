@@ -67,7 +67,12 @@
     
     // reparent the subviews from the nib file
     for (UIView * view in containerView.subviews)
+    {
+	if(view.superview != nil)
+	    [view removeFromSuperview];
+
         [self addSubview:view];
+    }
     
     //re-add constraints, replace containerView with self
     for (NSLayoutConstraint *constraint in constraints)

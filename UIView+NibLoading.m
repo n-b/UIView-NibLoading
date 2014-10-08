@@ -18,7 +18,7 @@
     UINib * nib = associatedNibs[nibName];
     if(nil==nib)
     {
-        nib = [UINib nibWithNibName:nibName bundle:nil];
+        nib = [UINib nibWithNibName:nibName bundle:[NSBundle bundleForClass:self]];
         if(nib)
         {
             NSMutableDictionary * newNibs = [NSMutableDictionary dictionaryWithDictionary:associatedNibs];
@@ -87,7 +87,15 @@
 
 - (void) loadContentsFromNib
 {
-    [self loadContentsFromNibNamed:NSStringFromClass([self class])];
+    NSString *className = NSStringFromClass([self class]);
+    // A Swift class name will be in the format of ModuleName.ClassName
+    // We want to remove the module name so the Nib can have exactly the same file name as the class
+    NSRange range = [className rangeOfString:@"."];
+    if (range.location != NSNotFound)
+    {
+        className = [className substringFromIndex:range.location + range.length];
+    }
+    [self loadContentsFromNibNamed:className];
 }
 
 @end

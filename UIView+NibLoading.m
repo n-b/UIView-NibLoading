@@ -30,6 +30,8 @@
     return nib;
 }
 
+static char kUIViewNibLoading_outletsKey;
+
 - (void) loadContentsFromNibNamed:(NSString*)nibName
 {
     // Load the nib file, setting self as the owner.
@@ -37,8 +39,12 @@
     UINib * nib = [[self class] _nibLoadingAssociatedNibWithName:nibName];
     NSAssert(nib!=nil, @"UIView+NibLoading : Can't load nib named %@.",nibName);
 
+    // Instantiate (and keep a list of the outlets set through KVC.)
+    NSMutableDictionary * outlets = [NSMutableDictionary new];
+    objc_setAssociatedObject(self, &kUIViewNibLoading_outletsKey, outlets, OBJC_ASSOCIATION_RETAIN);
     NSArray * views = [nib instantiateWithOwner:self options:nil];
     NSAssert(views!=nil, @"UIView+NibLoading : Can't instantiate nib named %@.",nibName);
+    objc_setAssociatedObject(self, &kUIViewNibLoading_outletsKey, nil, OBJC_ASSOCIATION_RETAIN);
 
     // Search for the first encountered UIView based object
     UIView * containerView = nil;
@@ -81,8 +87,28 @@
         if (secondItem == containerView)
             secondItem = self;
         
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:secondItem attribute:constraint.secondAttribute multiplier:constraint.multiplier constant:constraint.constant]];
+        NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:secondItem attribute:constraint.secondAttribute multiplier:constraint.multiplier constant:constraint.constant];
+        [self addConstraint:newConstraint];
+        
+        // If there was outlet(s) to the old constraint, replace it with the new constraint.
+        for (NSString * key in outlets)
+        {
+            if (outlets[key]==oldConstraint)
+            {
+                NSAssert([self valueForKey:key]==oldConstraint, @"UIView+NibLoading : Unexpected value for outlet %@ of view %@. Expected %@, found %@.", key, self, oldConstraint, [self valueForKey:key]);
+                [self setValue:newConstraint forKey:key];
+            }
+        }
     }
+}
+
+- (void) setValue:(id)value forKey:(NSString *)key
+{
+    // Keep a list of the outlets set during nib loading.
+    // (See above: This associated object only exists during nib-loading)
+    NSMutableDictionary * outlets = objc_getAssociatedObject(self, &kUIViewNibLoading_outletsKey);
+    outlets[key] = value;
+    [super setValue:value forKey:key];
 }
 
 - (void) loadContentsFromNib

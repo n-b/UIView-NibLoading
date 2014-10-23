@@ -46,7 +46,7 @@ static char kUIViewNibLoading_outletsKey;
     NSAssert(views!=nil, @"UIView+NibLoading : Can't instantiate nib named %@.",nibName);
     objc_setAssociatedObject(self, &kUIViewNibLoading_outletsKey, nil, OBJC_ASSOCIATION_RETAIN);
 
-    // Search for the first encountered UIView based object
+    // Search for the first encountered UIView base object
     UIView * containerView = nil;
     for (id v in views)
     {
@@ -56,38 +56,51 @@ static char kUIViewNibLoading_outletsKey;
             break;
         }
     }
-    
-    NSAssert(containerView != nil, @"UIView+NibLoading : There is no container UIView found at the root of nib %@.",nibName);
+    NSAssert(containerView!=nil, @"UIView+NibLoading : There is no container UIView found at the root of nib %@.",nibName);
     
     [containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     if(CGRectEqualToRect(self.bounds, CGRectZero))
+    {
         // `self` has no size : use the containerView's size, from the nib file
         self.bounds = containerView.bounds;
+    }
     else
+    {
         // `self` has a specific size : resize the containerView to this size, so that the subviews are autoresized.
         containerView.bounds = self.bounds;
+    }
     
-    //save constraints for later
-    NSArray *constraints = containerView.constraints;
+    // Save constraints for later
+    NSArray * constraints = containerView.constraints;
     
     // reparent the subviews from the nib file
     for (UIView * view in containerView.subviews)
-        [self addSubview:view];
-    
-    //re-add constraints, replace containerView with self
-    for (NSLayoutConstraint *constraint in constraints)
     {
-        id firstItem = constraint.firstItem;
-        id secondItem = constraint.secondItem;
-        
+        [self addSubview:view];
+    }
+    
+    // Recreate constraints, replace containerView with self
+    for (NSLayoutConstraint *oldConstraint in constraints)
+    {
+        id firstItem = oldConstraint.firstItem;
+        id secondItem = oldConstraint.secondItem;
         if (firstItem == containerView)
+        {
             firstItem = self;
-        
+        }
         if (secondItem == containerView)
+        {
             secondItem = self;
+        }
         
-        NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:secondItem attribute:constraint.secondAttribute multiplier:constraint.multiplier constant:constraint.constant];
+        NSLayoutConstraint * newConstraint = [NSLayoutConstraint constraintWithItem:firstItem
+                                                                          attribute:oldConstraint.firstAttribute
+                                                                          relatedBy:oldConstraint.relation
+                                                                             toItem:secondItem
+                                                                          attribute:oldConstraint.secondAttribute
+                                                                         multiplier:oldConstraint.multiplier
+                                                                           constant:oldConstraint.constant];
         [self addConstraint:newConstraint];
         
         // If there was outlet(s) to the old constraint, replace it with the new constraint.

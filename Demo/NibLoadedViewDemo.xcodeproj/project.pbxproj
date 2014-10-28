@@ -19,6 +19,8 @@
 		37446B6216B1A9AE0040C52F /* ColorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37446B6016B1A9AE0040C52F /* ColorsViewController.xib */; };
 		37446B6516B1A9D70040C52F /* ColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37446B6416B1A9D70040C52F /* ColorView.m */; };
 		37446B6916B1AAF40040C52F /* ColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37446B6816B1AAF40040C52F /* ColorView.xib */; };
+		6360C5A019F7071700BE72AC /* TwoViewsWithConfigurableSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360C59F19F7071700BE72AC /* TwoViewsWithConfigurableSpace.m */; };
+		6360C5A219F7075300BE72AC /* TwoViewsWithConfigurableSpace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6360C5A119F7075300BE72AC /* TwoViewsWithConfigurableSpace.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		37446B6816B1AAF40040C52F /* ColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorView.xib; sourceTree = "<group>"; };
 		37446B6A16B27DE70040C52F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		37446B6C16B27EAF0040C52F /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.md; path = ../../LICENSE.md; sourceTree = "<group>"; };
+		6360C59E19F7071700BE72AC /* TwoViewsWithConfigurableSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewsWithConfigurableSpace.h; sourceTree = "<group>"; };
+		6360C59F19F7071700BE72AC /* TwoViewsWithConfigurableSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewsWithConfigurableSpace.m; sourceTree = "<group>"; };
+		6360C5A119F7075300BE72AC /* TwoViewsWithConfigurableSpace.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoViewsWithConfigurableSpace.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,9 @@
 				37446B5E16B1A9AE0040C52F /* ColorsViewController.h */,
 				37446B5F16B1A9AE0040C52F /* ColorsViewController.m */,
 				37446B6016B1A9AE0040C52F /* ColorsViewController.xib */,
+				6360C59E19F7071700BE72AC /* TwoViewsWithConfigurableSpace.h */,
+				6360C59F19F7071700BE72AC /* TwoViewsWithConfigurableSpace.m */,
+				6360C5A119F7075300BE72AC /* TwoViewsWithConfigurableSpace.xib */,
 			);
 			name = "Demo Code";
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 				37446B4E16B1A7630040C52F /* Default.png in Resources */,
 				37446B5016B1A7630040C52F /* Default@2x.png in Resources */,
 				37446B5216B1A7630040C52F /* Default-568h@2x.png in Resources */,
+				6360C5A219F7075300BE72AC /* TwoViewsWithConfigurableSpace.xib in Resources */,
 				37446B6216B1A9AE0040C52F /* ColorsViewController.xib in Resources */,
 				37446B6916B1AAF40040C52F /* ColorView.xib in Resources */,
 			);
@@ -191,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37446B4C16B1A7630040C52F /* AppDelegate.m in Sources */,
+				6360C5A019F7071700BE72AC /* TwoViewsWithConfigurableSpace.m in Sources */,
 				37446B5A16B1A7F50040C52F /* UIView+NibLoading.m in Sources */,
 				37446B6116B1A9AE0040C52F /* ColorsViewController.m in Sources */,
 				37446B6516B1A9D70040C52F /* ColorView.m in Sources */,
